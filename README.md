@@ -18,18 +18,21 @@ needed.
 
 ## Benchmarks
 
-We evaluated mobile-harness on AndroidWorld and iOSWorld using a standard coding
-agent with **GPT-6 Astra low**, app cards, and persistent memory.
+With mobile-harness, a standard coding agent achieved **100% on AndroidWorld**
+and a **98.24% mean score on iOSWorld**. The evaluations covered **249 mobile
+tasks**, using **GPT-6 Astra with low reasoning**, app cards, and persistent memory.
 
 | Benchmark | Tasks | Mean score | Binary pass rate |
 |---|---:|---:|---:|
-| AndroidWorld | 116 | **100%** | **100% — 116/116** |
-| iOSWorld | 133 | **98.24%** | **93.23% — 124/133** |
+| [AndroidWorld](https://mobilerun.ai/benchmark/?platform=android#tasks) | 116 | **100%** | **100%** (116/116) |
+| [iOSWorld](https://mobilerun.ai/benchmark/?platform=ios#tasks) | 133 | **98.24%** | **93.23%** (124/133) |
 
-Only a score of **1.0** counts as a binary pass. Task replays include screenshots
-and recorded interactions.
+**Mean score** averages the task scores. **Binary pass rate** counts only tasks
+that received a full score of **1.0**.
 
-[Results](https://mobilerun.ai/benchmark/) · [AndroidWorld tasks](https://mobilerun.ai/benchmark/?platform=android#tasks) · [iOSWorld tasks](https://mobilerun.ai/benchmark/?platform=ios#tasks) · [Methodology](https://mobilerun.ai/benchmark/method/)
+Explore the [results and task replays](https://mobilerun.ai/benchmark/) for
+screenshots and recorded interactions, or read the
+[methodology](https://mobilerun.ai/benchmark/method/) for evaluation details.
 
 ## Agent Setup Prompt
 
