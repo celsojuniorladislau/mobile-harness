@@ -12,6 +12,21 @@ Mobile Harness is a compact Markdown harness, not an agent runtime. Its primary
 control path is Python's `mobilerun_core`, with optional client apps where
 needed.
 
+## Benchmarks
+
+We evaluated mobile-harness on AndroidWorld and iOSWorld using a standard coding
+agent with **GPT-6 Astra low**, app cards, and persistent memory.
+
+| Benchmark | Tasks | Mean score | Binary pass rate |
+|---|---:|---:|---:|
+| AndroidWorld | 116 | **100%** | **100% — 116/116** |
+| iOSWorld | 133 | **98.24%** | **93.23% — 124/133** |
+
+Only a score of **1.0** counts as a binary pass. Task replays include screenshots
+and recorded interactions.
+
+[Results](https://mobilerun.ai/benchmark/) · [AndroidWorld tasks](https://mobilerun.ai/benchmark/?platform=android#tasks) · [iOSWorld tasks](https://mobilerun.ai/benchmark/?platform=ios#tasks) · [Methodology](https://mobilerun.ai/benchmark/method/)
+
 ## Agent Setup Prompt
 
 Copy paste it into your agent:
