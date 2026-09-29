@@ -4,6 +4,10 @@
 
 <p align="center">
   <a href="https://skills.sh/droidrun/mobile-harness"><img src="https://skills.sh/b/droidrun/mobile-harness" alt="skills.sh" /></a>
+  <a href="https://mobilerun.ai"><img src="https://img.shields.io/badge/mobilerun.ai-white" alt="Mobilerun website" /></a>
+  <a href="https://x.com/mobilerun_ai"><img src="https://img.shields.io/twitter/follow/mobilerun_ai?style=social" alt="Follow Mobilerun on X" /></a>
+  <a href="https://discord.gg/ZZbKEZZkwK"><img src="https://img.shields.io/discord/1360219330318696488?color=white&amp;label=Discord&amp;logo=discord&amp;logoColor=white" alt="Mobilerun Discord community" /></a>
+  <a href="https://t.me/+_r43WkbbyiA1OGUy"><img src="https://img.shields.io/badge/Telegram-Support-26A5E4?logo=telegram&amp;logoColor=white" alt="Mobilerun Telegram support" /></a>
 </p>
 
 > Portable operating instructions for AI agents controlling Android and iOS devices—locally or in the cloud.
