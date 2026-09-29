@@ -18,14 +18,13 @@ needed.
 
 ## Benchmarks
 
-With mobile-harness, a standard coding agent achieved **100% on AndroidWorld**
-and a **98.24% mean score on iOSWorld**. The evaluations covered **249 mobile
-tasks**, using **GPT-6 Astra with low reasoning**, app cards, and persistent memory.
+We evaluated mobile-harness on AndroidWorld and iOSWorld using a standard coding
+agent with **GPT-6 Astra low**, app cards, and persistent memory.
 
-| Benchmark | Tasks | Mean score | Binary pass rate |
-|---|---:|---:|---:|
-| [AndroidWorld](https://mobilerun.ai/benchmark/?platform=android#tasks) | 116 | **100%** | **100%** (116/116) |
-| [iOSWorld](https://mobilerun.ai/benchmark/?platform=ios#tasks) | 133 | **98.24%** | **93.23%** (124/133) |
+<p align="center">
+  <a href="https://mobilerun.ai/benchmark/?platform=android#tasks"><img src="assets/benchmark-android.svg" width="400" alt="AndroidWorld: 116 tasks, 100% mean score, 100% binary pass rate, 116/116 full-score tasks." /></a>
+  <a href="https://mobilerun.ai/benchmark/?platform=ios#tasks"><img src="assets/benchmark-ios.svg" width="400" alt="iOSWorld: 133 tasks, 98.24% mean score, 93.23% binary pass rate, 124/133 full-score tasks." /></a>
+</p>
 
 **Mean score** averages the task scores. **Binary pass rate** counts only tasks
 that received a full score of **1.0**.
