@@ -22,9 +22,10 @@ We evaluated mobile-harness on AndroidWorld and iOSWorld using a standard coding
 agent with **GPT-6 Astra low**, app cards, and persistent memory.
 
 <p align="center">
-  <a href="https://mobilerun.ai/benchmark/?platform=android#tasks"><img src="assets/benchmark-android.svg" width="400" alt="AndroidWorld: 116 tasks, 100% mean score, 100% binary pass rate, 116/116 full-score tasks." /></a>
-  <a href="https://mobilerun.ai/benchmark/?platform=ios#tasks"><img src="assets/benchmark-ios.svg" width="400" alt="iOSWorld: 133 tasks, 98.24% mean score, 93.23% binary pass rate, 124/133 full-score tasks." /></a>
+  <a href="https://mobilerun.ai/benchmark/"><img src="assets/benchmark-results.png" width="900" alt="AndroidWorld: 116 tasks, 100% mean score, 100% binary pass rate, 116/116 full-score tasks. iOSWorld: 133 tasks, 98.24% mean score, 93.23% binary pass rate, 124/133 full-score tasks." /></a>
 </p>
+
+[AndroidWorld tasks](https://mobilerun.ai/benchmark/?platform=android#tasks) · [iOSWorld tasks](https://mobilerun.ai/benchmark/?platform=ios#tasks)
 
 **Mean score** averages the task scores. **Binary pass rate** counts only tasks
 that received a full score of **1.0**.
