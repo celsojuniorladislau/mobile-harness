@@ -13,6 +13,6 @@ if [ ! -f "$VENV_PYTHON" ]; then
 fi
 
 export HARNESS_ROOT="${SCRIPT_DIR}"
-export PYTHONPATH="${SCRIPT_DIR}:${PYTHONPATH}"
+export PYTHONPATH="${SCRIPT_DIR}/src:${SCRIPT_DIR}:${PYTHONPATH}"
 
 exec "$VENV_PYTHON" "$@"

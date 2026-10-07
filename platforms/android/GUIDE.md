@@ -73,13 +73,8 @@ Prefer accessibility-tree helpers over guessed coordinates:
 
 - `device.find_nodes(...)` accepts filters such as `text=`, `desc=`,
   `resource_id=`, `text_contains=`, `desc_contains=`, and `any_contains=`.
-  `any_contains=` matches case-insensitive substrings across text, content
-  description, resource id, and accessibility identifier. Nodes may carry two
-  flags: `offscreen: True` marks a real element outside the viewport, scroll
-  to reach it; `hidden: True` marks an element Android reports as not visible,
-  collapsed or covered, so scrolling alone may not reveal it unless it is also
-  offscreen. A missing flag is not proof of visibility; older tree sources do
-  not emit `hidden`.
+  *Attribute Shadowing Caveat*: `any_contains=` evaluates the first non-empty attribute (`text` first). If a node has both `text="Home"` and `contentDescription="Dashboard"`, `any_contains="Dashboard"` will not match. Use `desc_contains=` or full `resource_id=` explicitly when matching non-text fields. Note that `resource_id=` requires the full package namespace (`com.pkg:id/name`), as partial substring matching is not supported on that argument.
+  *Off-Screen & Visibility*: Normal below-the-fold elements may have valid positive bounds and lack `offscreen: True`, and may be marked `hidden: True` by Android. Always prefer `device.find_nodes_on_screen(...)` to identify truly visible and actionable elements.
 - `device.tap_node(node)` taps the center of a node and fails clearly if bounds
   are missing or unusable. Before any bounds check, it raises a distinct error
   for a node flagged hidden unless the node is also offscreen; change the UI
@@ -101,9 +96,10 @@ Prefer accessibility-tree helpers over guessed coordinates:
   after `max_swipes` means the swipe budget ran out. Do not re-call it
   blindly.
 - `device.type("text", clear=True)` clears the focused field before typing.
-  ADB-only mode supports ordinary text input; Portal remains the richer path
-  when available.
+  *ADB-only Caveat*: When Portal is not active, text input supports printable ASCII only (accents, emojis, and literal `"%s"` raise `ValueError`). Richer text input requires Portal.
 - `device.clear_input()` clears the focused field when supported.
+- `device.open_and_settle(app_id)` opens an app, waits for it to reach the foreground, and waits for the UI to settle in a single call. Pair with `device.assert_on(app_id)` for quick foreground verification.
+- `device.stop_app(package)` stops the app. `clear_data=True` is cloud-only; for local reset, use `adb -s <serial> shell pm clear <package>`.
 - `device.list_apps()` excludes system apps by default. Use
   `device.list_apps(include_system_apps=True)` when a full installed-package
   inventory is needed and supported. Raw `pm list packages` is a diagnostic

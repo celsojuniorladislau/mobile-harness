@@ -23,7 +23,8 @@ You can also run or symlink `./bin/mobile-harness` to `~/.local/bin/mobile-harne
 mobile-harness <<'PY'
 from mobilerun_core import Mobilerun
 m = Mobilerun()
-device = m.connect(backend="local-android-adb")
+# Pick the connected local device automatically (or pass serial: m.connect("<serial>", backend="local-android-adb"))
+device = m.ensure_device(scope="local")
 print(device.ui())
 PY
 ```

@@ -80,6 +80,10 @@ Use the `device` returned by `Mobilerun.connect(...)`:
 - `device.type("text", clear=True)` clears the focused field before typing
   when text input is supported.
 - `device.clear_input()` is supported by local iOS Portal HTTP.
+- **Hardware & Navigation Buttons**: `device.key("home")` is the **only** hardware key supported on `local-ios-http`. `device.key("back")`, `device.key("enter")`, and `device.key("wakeup")` do not exist on iOS and raise `UnsupportedOperation`. To navigate back, tap the in-app navigation bar Back button or perform a left-edge swipe (`device.swipe(10, cy, 300, cy)`).
+- **App Termination**: `device.stop_app(id)` is unsupported on local iOS. Use `device.key("home")` to return to the SpringBoard launcher.
+- **App Identification**: Local iOS Portal does not populate `phone_state` in the UI tree, so `device.current_app_id()` returns `None`. Avoid `device.open_and_settle()` and `device.assert_on()` on local iOS (they will raise `TimeoutError`/`AssertionError`); use `device.start_app(bundle_id)` followed by `device.wait_for_idle(2.0)` or visual verification instead.
+- **Screenshots**: Local iOS returns a base64-encoded PNG string; cloud devices return a local file path.
 
 ## Two Local iOS Portals
 
