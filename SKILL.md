@@ -67,7 +67,7 @@ PY
 ### Action Cycle (Observe -> Act -> Verify)
 
 1. **Observe**: `device.ui()` extracts the semantic UI hierarchy. Fallback to `device.screenshot()` only if visual inspection is needed (note: local backend returns base64-encoded PNG string).
-2. **Act**: `device.tap_text("Label")`, `device.tap_node(node)`, `device.type_text("Text")`, `device.scroll("down")`, `device.press_key("BACK")`.
+2. **Act**: `device.tap_text("Label")`, `device.tap_node(node)`, `device.type("Text")`, `device.scroll("down")`, `device.key("back")`.
 3. **Verify**: Always re-check `device.ui()` after an action to ensure the state transitioned as expected before the next step.
 
 For setup and runtime registration, read `install.md`.
