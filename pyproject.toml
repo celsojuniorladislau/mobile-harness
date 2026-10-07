@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mobile-harness"
+version = "0.1.0"
+description = "Portable Android and iOS device-control harness for agents"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "mobilerun-core[local]>=0.1.0",
+]
+
+[project.scripts]
+mobile-harness = "mobile_harness.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mobile_harness"]
