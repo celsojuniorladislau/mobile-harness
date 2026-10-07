@@ -39,21 +39,34 @@ When `mobile-harness` CLI (or `./bin/mobile-harness`) is available:
 
 ```bash
 mobile-harness <<'PY'
+import base64
+import subprocess
 from mobilerun_core import Mobilerun
 
 m = Mobilerun()
-# Connect to local device (or pass specific serial/IP:port)
-device = m.connect(backend="local-android-adb")
 
-# Inspect accessibility hierarchy
+# 1. Resolve ADB serial automatically if not provided (local-android-adb requires a serial)
+try:
+    serial = subprocess.check_output(["adb", "get-serialno"]).decode().strip()
+except Exception:
+    serial = None
+
+device = m.connect(serial or "<adb-serial>", backend="local-android-adb")
+
+# 2. Inspect accessibility hierarchy
 tree = device.ui()
 print(tree)
+
+# 3. Optional: save screenshot (local backend returns base64-encoded PNG string)
+# screenshot_b64 = device.screenshot()
+# with open("screenshot.png", "wb") as f:
+#     f.write(base64.b64decode(screenshot_b64))
 PY
 ```
 
 ### Action Cycle (Observe -> Act -> Verify)
 
-1. **Observe**: `device.ui()` extracts the semantic UI hierarchy. Fallback to `device.screenshot()` only if visual inspection is needed.
+1. **Observe**: `device.ui()` extracts the semantic UI hierarchy. Fallback to `device.screenshot()` only if visual inspection is needed (note: local backend returns base64-encoded PNG string).
 2. **Act**: `device.tap_text("Label")`, `device.tap_node(node)`, `device.type_text("Text")`, `device.scroll("down")`, `device.press_key("BACK")`.
 3. **Verify**: Always re-check `device.ui()` after an action to ensure the state transitioned as expected before the next step.
 
