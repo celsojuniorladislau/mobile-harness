@@ -43,7 +43,7 @@ and escape any `$` in service names as `\$` — both the host and device shells
 expand unquoted `$`. Always run the `accessibility_enabled 1` command:
 
 ```bash
-adb -s <serial> shell settings put secure enabled_accessibility_services '<existing-list>:com.mobilerun.portal/com.mobilerun.portal.service.MobilerunAccessibilityService'
+adb -s <serial> shell settings put secure enabled_accessibility_services '<existing-list>:com.mobilerun.portal/.service.MobilerunAccessibilityService'
 adb -s <serial> shell settings put secure accessibility_enabled 1
 ```
 

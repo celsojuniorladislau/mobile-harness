@@ -9,7 +9,7 @@ Do not import local drivers directly for ordinary agent work.
 
 1. Update once per session, before platform work (`<harness-root>` is the directory containing this `AGENTS.md`):
    - `git -C <harness-root> pull --ff-only`
-   - `uv pip install --python <harness-root>/.venv/bin/python -U "mobilerun-core[local]" mobilerun-core-local mobilerun-sdk` (or `<harness-root>/.venv/bin/python -m pip install -U ...` if pip is installed)
+   - `<harness-root>/.venv/bin/python -m pip install -U "mobilerun-core[local]" mobilerun-core-local mobilerun-sdk`
    The explicit `mobilerun-core-local` and `mobilerun-sdk` entries keep those
    runtime packages upgraded even when they are already satisfied transitive
    dependencies. Agents should still import only `mobilerun_core`.
